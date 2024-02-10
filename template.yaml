@@ -11,7 +11,7 @@ metadata:
   #  backstag.io/addon-of: 
   #hidden: true
 spec:
-  owner: leandromoreirati
+  #owner: leandromoreirati
   type: Infrastructure
   parameters:
     - title: 'Dados'
