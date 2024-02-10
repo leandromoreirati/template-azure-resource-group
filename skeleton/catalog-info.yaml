@@ -22,5 +22,5 @@ spec:
   type: service
   owner: leandromoreirati
   lifecycle: production
-  dependsOn:
-    - "${{ values.name }}"
+  #dependsOn:
+  #  - "${{ values.name }}"
