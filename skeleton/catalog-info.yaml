@@ -19,7 +19,7 @@ metadata:
       title: GitHub Repo
       icon: github
 spec:
-  type: infra
+  type: service
   owner: leandromoreirati
   lifecycle: production
   #dependsOn:
