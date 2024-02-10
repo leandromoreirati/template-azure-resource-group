@@ -20,7 +20,7 @@ metadata:
       icon: github
 spec:
   type: infra
-  owner: john@example.com
+  owner: leandromoreirati
   lifecycle: production
-  dependsOn:
-    - "${{ values.name }}"
+  #dependsOn:
+  #  - "${{ values.name }}"
