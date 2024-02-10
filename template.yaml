@@ -15,7 +15,7 @@ spec:
   type: Infrastructure
   parameters:
     - title: 'Dados'
-      required: [name, localtion]
+      required: [name, location]
       properties:
         name:
           title: 'Name'
