@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: azure-resource-group
+  description: |
+    [Azure Resource Group](https://github.com/leandromoreirati/tf-module-azure-resource-group)
+    Terraform module to create On Azure Resource Group
+  #labels:
+  #  example.com/custom: custom_label_value
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  #  circleci.com/project-slug: github/example-org/artist-website
+  tags:
+    - infrastructure
+    - iac
+    - terraform
+  links:
+    - url: https://github.com/leandromoreirati/tf-module-azure-resource-group
+      title: GitHub Repo
+      icon: github
+spec:
+  type: infra
+  owner: john@example.com
+  lifecycle: production
+  dependsOn:
+    - "${{ values.name }}"

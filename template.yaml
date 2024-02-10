@@ -1,0 +1,87 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: azure-resource-group
+  title: Resource Group
+  label: resourceGroup
+  description: Criação de Resource Group no Azure
+  tags: [azure, terraform, iac, resourceGroup]
+  namespace: azure
+  #annotations:
+  #  backstag.io/addon-of: 
+  #hidden: true
+spec:
+  owner: leandromoreirati
+  type: Infrastructure
+  parameters:
+    - title: 'Dados'
+      required: [name, localtion]
+      properties:
+        name:
+          title: 'Name'
+          type: string
+          description: 'Nome do `Resource Group`'
+          default: 'my-rg'
+          maxLength: 63
+          pattern: '^[a-zA-Z0-9\-]*$'
+          ui:autofocus: true
+          ui:help: 'Máximo de 63 caracteres. Permite letras, números e traço'
+        location:
+          title: 'Location'
+          type: string
+          description: 'Location do `Resource Group`'
+          maxLength: 100
+          default: 'useast2'
+          ui:autofocus: true
+          ui:help: 'Zona onde o Resource Group Será Criado'
+    - title: 'Repositório da Infraestrutura'
+      required: [repoUrl]
+      properties:
+        repoUrl:
+          title: Repository
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+            allowedOwners:
+              - leandromoreirati
+  steps:
+    - id: fetch-base
+      name: Aplicando template (Azure Resource Group)
+      action: fetch:template
+      input:
+        #targetPath: aws-lambda/${{ parameters.name }}/
+        #url: https://github.com/leandromoreirati/tf-module-azure-resource-group
+        url: ./skeleton
+        targetPath: ./
+        replace: true
+        #copyWithoutTemplating:
+        #  - "**/*.full"
+        values:          
+          name: ${{ parameters.name }}
+          location: ${{ parameters.location }}
+          #tag: ${{ parameters.tag }}
+          
+
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts: ['github.com']
+        description: This is ${{ parameters.name }}
+        repoUrl: ${{ parameters.repoUrl }}
+
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        #repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        catalogInfoPath: '/catalog-info.yaml'
+
+  output:
+    links:
+      - title: Repositório Lambda
+        url: ${{steps.publish_lambda.output.remoteUrl}}
+        text: "PR da Lambda"
