@@ -5,7 +5,7 @@ metadata:
   title: Resource Group
   label: resourceGroup
   description: Criação de Resource Group no Azure
-  tags: [azure, terraform, iac, resourcegroup]
+  tags: [azure, terraform, iac, resource-group]
   namespace: azure
   #annotations:
   #  backstag.io/addon-of: 
