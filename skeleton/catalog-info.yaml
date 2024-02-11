@@ -22,7 +22,7 @@ metadata:
       icon: github
 spec:
   type: infrastructure
-  owner: infrastructure/devops
+  owner: group:default/engineering
   lifecycle: production
   #dependsOn:
   #  - "${{ values.name }}"
