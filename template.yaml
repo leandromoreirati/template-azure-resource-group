@@ -47,13 +47,12 @@ spec:
             allowedOwners:
               - leandromoreirati
   steps:
-
     - id: fetch-base
       name: Aplicando template (Azure Resource Group)
       action: fetch:template
       input:
         #targetPath: aws-lambda/${{ parameters.name }}/
-        #url: https://github.com/leandromoreirati/tf-module-azure-resource-group
+        #url: https://github.com/leandromoreirati/template-azure-resource-group/skeleton
         url: ./skeleton
         targetPath: ./
         replace: true
@@ -63,6 +62,7 @@ spec:
           name: ${{ parameters.name }}
           location: ${{ parameters.location }}
           #tag: ${{ parameters.tag }}
+          
 
     - id: publish
       name: Publish
@@ -76,11 +76,12 @@ spec:
       name: Register
       action: catalog:register
       input:
-        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
-        #repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        #repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
 
   output:
     links:
-      - title: Repositório
-        url: ${{steps.publish.output.remoteUrl}}
+      - title: Repositório Lambda
+        url: ${{steps.publish_lambda.output.remoteUrl}}
+        text: "PR da Lambda"
