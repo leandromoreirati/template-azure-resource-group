@@ -10,6 +10,10 @@ metadata:
   #annotations:
   #  backstag.io/addon-of: 
   #hidden: true
+  links:
+    - url: https://github.com/leandromoreirati/tf-module-azure-resource-group
+      title: GitHub Repo
+      icon: github
 spec:
   owner: infrastructure/devops
   type: Infrastructure
