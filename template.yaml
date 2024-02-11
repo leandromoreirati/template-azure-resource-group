@@ -32,8 +32,15 @@ spec:
           description: 'Location do `Resource Group`'
           maxLength: 100
           default: 'useast2'
-          ui:autofocus: true
+          #ui:autofocus: true
           ui:help: 'Região on de o Resource Group será criado.'
+        owner:
+          title:  Proprietário(s)
+          type: string
+          description: Equipe Responsável pelo projeto
+          iu:field: OwnerPicker
+          ui:options:
+            allowedKinds: [Group]
     - title: 'Repositório da Infraestrutura'
       required: [repoUrl]
       properties:
