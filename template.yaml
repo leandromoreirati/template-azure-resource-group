@@ -78,7 +78,7 @@ spec:
         allowedHosts: ['github.com']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
-        #repoVisibility: private
+        repoVisibility: public # or 'internal' or 'private'
         defaultBranch: main
         protectDefaultBranch: true
         deleteBranchOnMerge: true
