@@ -62,7 +62,6 @@ spec:
           name: ${{ parameters.name }}
           location: ${{ parameters.location }}
           #tag: ${{ parameters.tag }}
-          
 
     - id: publish
       name: Publish
@@ -82,6 +81,6 @@ spec:
 
   output:
     links:
-      - title: Repositório Lambda
-        url: ${{steps.publish_lambda.output.remoteUrl}}
-        text: "PR da Lambda"
+      - title: Repositório
+        url: ${{steps.Publish.output.remoteUrl}}
+        text: "Repositório"
