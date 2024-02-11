@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: azure-resource-group
-  title: Resource Group
+  title: Azure Resource Group
   label: resourceGroup
   description: Criação de Resource Group no Azure
   tags: [azure, terraform, iac, resource-group]
