@@ -47,11 +47,11 @@ spec:
             allowedOwners:
               - leandromoreirati
   steps:
-    - id: Info
-      name: Obtendo Informações
-      action: catalog:fetch
-      input:
-        entityRef: ${{ parameters.name }}
+    #- id: Info
+    #  name: Obtendo Informações
+    #  action: catalog:fetch
+    #  input:
+    #    entityRef: ${{ parameters.name }}
 
     - id: resource_groups
       name: Fetch Resource Groups
