@@ -21,8 +21,8 @@ metadata:
       title: GitHub Repo
       icon: github
 spec:
-  type: service
-  owner: leandromoreirati
+  type: infrastructure
+  owner: infrastructure/devops
   lifecycle: production
   #dependsOn:
   #  - "${{ values.name }}"
