@@ -62,6 +62,7 @@ spec:
           name: ${{ parameters.name }}
           location: ${{ parameters.location }}
           #tag: ${{ parameters.tag }}
+          
 
     - id: publish
       name: Publish
