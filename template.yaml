@@ -87,7 +87,6 @@ spec:
           location: ${{ parameters.location }}
           #tag: ${{ parameters.tag }}
           
-
     - id: publish
       name: Publish
       action: publish:github
