@@ -96,3 +96,6 @@ spec:
     links:
       - title: Repositório
         url: ${{steps.publish.output.remoteUrl}}
+
+      - title: Catalog
+        url: ${{steps.register.output.entityRef}}
