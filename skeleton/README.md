@@ -1,1 +1,1 @@
-# azure-{{ values.name }}
+# azure-${{ values.name }}
