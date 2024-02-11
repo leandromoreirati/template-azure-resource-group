@@ -61,7 +61,7 @@ spec:
         fields:
         - metadata.name
         filter:
-          metadata.annotations.backstage.io/template-origin: ''
+          metadata.annotations.backstage.io/template-origin: 'template:azure/azure-resource-group'
           relations.depemdsOn: ${{ parameters.name }}
         
     - id: debug
