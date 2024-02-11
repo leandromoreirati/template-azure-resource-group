@@ -47,6 +47,7 @@ spec:
             allowedOwners:
               - leandromoreirati
   steps:
+
     - id: fetch-base
       name: Aplicando template (Azure Resource Group)
       action: fetch:template
