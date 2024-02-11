@@ -11,7 +11,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.
     backstage.io/code-coverage: scm-only
     backstage.io/template-origin: template:azure/azure-resource-group
-    backstage.io/repo-url: ${{ values.repoUrl }}
+  #  backstage.io/repo-url: ${{ values.repoUrl }}
   tags:
     - infrastructure
     - iac
