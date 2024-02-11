@@ -65,11 +65,11 @@ spec:
         replace: true
         #copyWithoutTemplating:
         #  - "**/*.full"
-        values:          
+        values:
           name: ${{ parameters.name }}
           location: ${{ parameters.location }}
           #tag: ${{ parameters.tag }}
-          
+          owner: ${{ parameters.owner }}
 
     - id: publish
       name: Publish
@@ -78,6 +78,11 @@ spec:
         allowedHosts: ['github.com']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
+        repoVisibility: private
+        defaultBranch: main
+        protectDefaultBranc: true
+        deleteBranchOnMerge: true
+        gitCommitMessage: "Commit by Interna Developer Portal."
 
     - id: register
       name: Register
