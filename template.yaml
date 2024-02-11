@@ -82,7 +82,7 @@ spec:
         defaultBranch: main
         protectDefaultBranch: true
         deleteBranchOnMerge: true
-        gitCommitMessage: "Commit by Internal Developer Portal(IDP)."
+        #gitCommitMessage: "Commit by Internal Developer Portal(IDP)."
 
     - id: register
       name: Register
