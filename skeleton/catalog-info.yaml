@@ -1,8 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: azure-rg-${{ values.name }}
-  description: |
+  name: azure-rg
     [Azure Resource Group](https://github.com/leandromoreirati/tf-module-azure-resource-group)
     Terraform module to create On Azure Resource Group
   #labels:
