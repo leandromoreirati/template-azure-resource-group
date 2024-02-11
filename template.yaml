@@ -84,4 +84,3 @@ spec:
     links:
       - title: Repositório Lambda
         url: ${{steps.publish.output.remoteUrl}}
-        text: "PR da Lambda"
