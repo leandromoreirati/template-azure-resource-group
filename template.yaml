@@ -8,7 +8,7 @@ metadata:
   tags: [azure, terraform, iac, resource-group]
   namespace: azure
   #annotations:
-  #  backstag.io/addon-of: template:azure/azure-resource-group
+  #  backstag.io/addon-of: 
   #hidden: true
 spec:
   #owner: leandromoreirati
@@ -47,36 +47,12 @@ spec:
             allowedOwners:
               - leandromoreirati
   steps:
-    #- id: Info
-    #  name: Obtendo Informações
-    #  action: catalog:fetch
-    #  input:
-    #    entityRef: ${{ parameters.name }}
-
-    #- id: resource_groups
-    #  name: Fetch Resource Groups
-    #  action: catalog:query
-    #  input:
-    #    limit: 2
-    #    fields:
-    #    - metadata.name
-    #    filter:
-    #      metadata.annotations.backstage.io/template-origin: 'template:azure/azure-resource-group'
-    #      relations.depemdsOn: ${{ parameters.name }}
-        
-    - id: debug
-      name: Debug
-      action: debug:log
-      input:
-        infos: ${{ steps.info.ouput }}
-        resource_groups: ${{ steps.resource_groups.ouput }}
-
     - id: fetch-base
       name: Aplicando template (Azure Resource Group)
       action: fetch:template
       input:
         #targetPath: aws-lambda/${{ parameters.name }}/
-        #url: https://github.com/leandromoreirati/template-azure-resource-group/skeleton
+        #url: https://github.com/leandromoreirati/tf-module-azure-resource-group
         url: ./skeleton
         targetPath: ./
         replace: true
@@ -87,6 +63,7 @@ spec:
           location: ${{ parameters.location }}
           #tag: ${{ parameters.tag }}
           
+
     - id: publish
       name: Publish
       action: publish:github
@@ -99,35 +76,12 @@ spec:
       name: Register
       action: catalog:register
       input:
-        #repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
-        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        #repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
-
-    #- id: create_pipeline
-    #  name: Create Azure Pipeline
-    #  action: pipeline:create:azure
-    #  input:
-    #    repository_name: 
-    #    organization: 
-    #    project:
-
-    #- id: execute_pipeline
-    #  name: Execute Azure Pipeline
-    #  action: pipeline:run:azure
-    #  input:
-    #    repoUrl: dev.azure.com/?organization=${{ r/[\?\&]organization=([^\&]+)/g.exec(steps.infos.output.entity.metadata.annotations["backstage.io/#repo-url"])[1] }}&owner={{ r/[\?\&]owner=([^\&]+)/g.exec(steps.infos.output.entity.metadata.annotations["backstage.io/repo-url"])[1] }}&{{ r/#[\?\&]repo=TF.container-=([^\&]+)/g.exec(steps.infos.output.entity.metadata.annotations["backstage.io/repo-url"])[1] }}
-    #    templateParameters:
-    #      envitonment: 'dev'
-    #      action: 'apply'
 
   output:
     links:
-      - title: Open in Calalog
-        url: ${{steps.publish.output.remoteUrl }}
-
-      #- title: Repositório
-      #  url: ${{steps.publish.output.entityRef }}
-
-      #- title: Pipeline
-      #  url: ${{steps.execute_pipeline.output.body._links['pipeline.web'].href }}
-        
+      - title: Repositório Lambda
+        url: ${{steps.publish_lambda.output.remoteUrl}}
+        text: "PR da Lambda"
