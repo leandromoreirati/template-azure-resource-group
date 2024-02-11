@@ -7,8 +7,8 @@ metadata:
   description: Criação de Resource Group no Azure
   tags: [azure, terraform, iac, resource-group]
   namespace: azure
-  annotations:
-    backstag.io/addon-of: template:azure/azure-resource-group
+  #annotations:
+  #  backstag.io/addon-of: template:azure/azure-resource-group
   #hidden: true
 spec:
   #owner: leandromoreirati
@@ -125,9 +125,9 @@ spec:
       - title: Open in Calalog
         url: ${{steps.publish.output.remoteUrl }}
 
-      - title: Repositório
-        url: ${{steps.publish.output.entityRef }}
+      #- title: Repositório
+      #  url: ${{steps.publish.output.entityRef }}
 
-      - title: Pipeline
-        url: ${{steps.execute_pipeline.output.body._links['pipeline.web'].href }}
+      #- title: Pipeline
+      #  url: ${{steps.execute_pipeline.output.body._links['pipeline.web'].href }}
         
