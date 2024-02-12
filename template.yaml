@@ -105,4 +105,4 @@ spec:
       - title: Catalog
         icon: catalog
         #url: ${{steps.register.output.entityRef}}
-        entityRef: ${{ steps['register'].output.entityRef }}
+        url: ${{ steps['register'].output.entityRef }}
