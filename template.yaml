@@ -99,7 +99,10 @@ spec:
   output:
     links:
       - title: Repositório
-        url: ${{steps.publish.output.remoteUrl}}
+        #url: ${{steps.publish.output.remoteUrl}}
+        url: ${{ steps['publish'].output.remoteUrl }}
 
       - title: Catalog
-        url: ${{steps.register.output.entityRef}}
+        icon: catalog
+        #url: ${{steps.register.output.entityRef}}
+        entityRef: ${{ steps['register'].output.entityRef }}
