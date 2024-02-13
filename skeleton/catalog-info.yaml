@@ -2,6 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: azure-${{ values.name }}
+  namespace: azure
   description: |
     [Azure Resource Group](https://github.com/leandromoreirati/tf-module-azure-resource-group)
     Terraform module to create On Azure Resource Group
@@ -22,7 +23,7 @@ metadata:
       icon: github
 spec:
   type: infrastructure
-  owner: group:default/engineering
+  owner: group:azure/devops
   lifecycle: production
   #dependsOn:
   #  - "${{ values.name }}"

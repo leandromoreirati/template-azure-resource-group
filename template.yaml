@@ -2,11 +2,11 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: azure-resource-group
+  namespace: azure
   title: Azure Resource Group
   label: resourceGroup
   description: Criação de Resource Group no Azure
   tags: [azure, terraform, iac, resource-group]
-  namespace: azure
   #annotations:
   #  backstag.io/addon-of: 
   #hidden: true
@@ -58,6 +58,24 @@ spec:
             allowedOwners:
               - leandromoreirati
   steps:
+    - id: infos
+      name: Carregando Informações
+      action: catalog:fetch
+      input:
+        entityRef: ${{ parameters.name }}
+
+    - id: debug:fetch
+      name: Debug Fetchers
+      action: debug:log
+      input:
+        infos: ${{ stepinfos.output }}
+
+    - id: debu:field
+      name: Debug Field
+      action:  debug:log
+      input:
+        paraameters:${{ parameters }}
+
     - id: fetch-base
       name: Aplicando template (Azure Resource Group)
       action: fetch:template
@@ -87,7 +105,16 @@ spec:
         protectDefaultBranch: true
         deleteBranchOnMerge: true
         #gitCommitMessage: "Commit by Internal Developer Portal(IDP)."
+        
 
+    #- id: publish_azure
+    #  action: publish:azure
+    #  name: Publish to Azure
+    #  input:
+    #    repoUrl: dev.azure.com?organization=organization&owner=project&repo=repo
+    #    description: Initialize a git repository
+    #    defaultBranch: main
+  
     - id: register
       name: Register
       action: catalog:register
@@ -107,3 +134,6 @@ spec:
         #url: ${{steps.register.output.entityRef}}
         url: ${{ steps['register'].output.entityRef }}
         #entityRef: ${{ steps['register'].output.entityRef }}
+
+
+        
