@@ -58,23 +58,23 @@ spec:
             allowedOwners:
               - leandromoreirati
   steps:
-    - id: infos
-      name: Carregando Informações
-      action: catalog:fetch
-      input:
-        entityRef: ${{ parameters.name }}
-
-    - id: debug:fetch
-      name: Debug Fetchers
-      action: debug:log
-      input:
-        infos: ${{ stepinfos.output }}
-
-    - id: debug:field
-      name: Debug Field
-      action:  debug:log
-      input:
-        parameters:${{ parameters }}
+    #- id: infos
+    #  name: Carregando Informações
+    #  action: catalog:fetch
+    #  input:
+    #    entityRef: ${{ parameters.name }}
+#
+    #- id: debug:fetch
+    #  name: Debug Fetchers
+    #  action: debug:log
+    #  input:
+    #    infos: ${{ stepinfos.output }}
+#
+    #- id: debug:field
+    #  name: Debug Field
+    #  action:  debug:log
+    #  input:
+    #    parameters:${{ parameters }}
 
     - id: fetch-base
       name: Aplicando template (Azure Resource Group)
