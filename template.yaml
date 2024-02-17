@@ -113,6 +113,15 @@ spec:
         deleteBranchOnMerge: true
         #gitCommitMessage: "Commit by Internal Developer Portal(IDP)."
 
+
+    - id: publish_azure
+      action: publish:azure
+      name: Publish to Azure
+      input:
+        repoUrl: dev.azure.com?organization=organization&owner=project&repo=repo
+        description: Initialize a git repository
+        defaultBranch: main
+
     #- id: publish_azure
     #  action: publish:azure
     #  name: Publish to Azure
