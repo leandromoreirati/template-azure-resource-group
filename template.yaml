@@ -119,9 +119,13 @@ spec:
       action: publish:azure
       name: Publish to Azure
       input:
-        repoUrl: dev.azure.com?organization=organization&owner=project&repo=repo
-        description: Initialize a git repository
-        defaultBranch: main
+        #repoUrl: dev.azure.com?organization=organization&owner=project&repo=repo # dev.azure.com?owner=leandromoreirati&repo=my-rg&organization=IaCautomacao
+        #description: Initialize a git repository
+        #defaultBranch: main
+        allowedHosts: ['dev.azure.com']
+        description: This is ${{ parameters.name }}
+        repoUrl: ${{ parameters.repoUrl }}
+        token: 4krydcf3rzj6kzwe5kwdt6etgnpwfa2mnbzz2ga6gbpfcti6gvjq
 
     #- id: publish_azure
     #  action: publish:azure
