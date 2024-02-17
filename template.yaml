@@ -74,7 +74,7 @@ spec:
     #  name: Debug Field
     #  action:  debug:log
     #  input:
-    #    parameters:${{ parameters }}
+    #    parameters: ${{ parameters }}
 
     - id: fetch-base
       name: Aplicando template (Azure Resource Group)
@@ -92,6 +92,13 @@ spec:
           location: ${{ parameters.location }}
           #tag: ${{ parameters.tag }}
           owner: ${{ parameters.owner }}
+
+    - id: fetch-model
+      name: Fecth Template
+      action: fetch:plain
+      input:
+        url: https://github.com/leandromoreirati/tf-module-azure-resource-group
+        targetPath: ./
 
     - id: publish
       name: Publish
