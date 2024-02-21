@@ -146,11 +146,19 @@ spec:
     #    description: Initialize a git repository
     #    defaultBranch: main
   
-    - id: register
+    #- id: register
+    #  name: Register
+    #  action: catalog:register
+    #  input:
+    #    repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+    #    #repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+    #    catalogInfoPath: '/catalog-info.yaml'
+  
+    - id: register_azure
       name: Register
       action: catalog:register
       input:
-        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        repoContentsUrl: ${{ steps['publish_azure'].output.repoContentsUrl }}
         #repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
 
