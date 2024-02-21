@@ -15,7 +15,7 @@ metadata:
       title: GitHub Repo
       icon: github
 spec:
-  #owner: infrastructure/devops
+  owner: infrastructure/devops
   type: Infrastructure
   parameters:
     - title: Configurações do Resource Group
@@ -171,6 +171,5 @@ spec:
       - title: Catalog
         icon: catalog
         #url: ${{steps.register.output.entityRef}}
-        #url: ${{ steps['register'].output.entityRef }}
-        url: ${{ steps['register_azure'].output.entityRef }}
+        url: ${{ steps['register'].output.entityRef }}
         #entityRef: ${{ steps['register'].output.entityRef }}
