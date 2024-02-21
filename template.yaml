@@ -15,7 +15,7 @@ metadata:
       title: GitHub Repo
       icon: github
 spec:
-  owner: infrastructure/devops
+  #owner: infrastructure/devops
   type: Infrastructure
   parameters:
     - title: Configurações do Resource Group
