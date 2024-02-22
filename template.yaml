@@ -135,7 +135,7 @@ spec:
         #allowedHosts: ['dev.azure.com']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
-        token: sppejbggrc3vmmouddn6wsclptqkp7gi6k7knb2gctkq4gonxf6a
+        token: 7zuumt24h5h3knbwqpwuxfnuwn6qzgejhhmkznx44k3x6vk7efma
         defaultBranch: main
 
     #- id: publish_azure
