@@ -110,7 +110,7 @@ spec:
           location: ${{ parameters.location }}
           #tag: ${{ parameters.tag }}
           owner: ${{ parameters.owner }}
-          repoUrl: ${{ parameters.repoUrl }}
+          #repoUrl: ${{ parameters.repoUrl }}
 
     #- id: publish
     #  name: Publish
