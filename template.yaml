@@ -132,10 +132,10 @@ spec:
         #repoUrl: dev.azure.com?organization=organization&owner=project&repo=repo # dev.azure.com?owner=leandromoreirati&repo=my-rg&organization=IaCautomacao
         #description: Initialize a git repository
         #defaultBranch: main
-        #allowedHosts: ['dev.azure.com']
+        allowedHosts: ['dev.azure.com']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
-        token: 7zuumt24h5h3knbwqpwuxfnuwn6qzgejhhmkznx44k3x6vk7efma
+        #token: 7zuumt24h5h3knbwqpwuxfnuwn6qzgejhhmkznx44k3x6vk7efma
         defaultBranch: main
 
     #- id: publish_azure
